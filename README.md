@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/33314001/README.md)
+[README.md](https://github.com/user-attachments/files/33314152/README.md)
 # AutoFlow IA · Agente de Calificación de Leads
 
 **Pre-Entrega 1 — Checkpoint de Configuración e Interfaces Agénticas**
@@ -28,7 +28,7 @@ El agente cumple una única función: **identificar y calificar leads**. La reco
 | Agente de Calificación de Leads | AI Agent · Tools Agent | Analiza el mensaje, clasifica y decide de forma autónoma si registra |
 | Anthropic Chat Model | Chat Model nativo | Claude Sonnet 4.6 · temperatura 0.2 · máx. 1024 tokens |
 | Registrar Lead Calificado | Airtable Tool (lateral) | Crea el registro del lead en la tabla Leads |
-| Log de Observabilidad (Gmail) | Gmail (nodo final) | Envía el informe del agente y el Execution Log al equipo comercial |
+| Log de Observabilidad (Gmail) | Gmail (nodo final) | Envía el correo "Tarea completada" con el informe del agente y el Execution Log |
 
 El workflow incluye notas en el lienzo (sticky notes) que documentan cada componente.
 
@@ -52,6 +52,14 @@ El workflow incluye notas en el lienzo (sticky notes) que documentan cada compon
 | Descripción semántica extensa | Casos de negocio en que debe usarse, casos en que no, cómo completar cada campo y qué devuelve |
 | Agente no ubicado detrás de bloques de decisión lineal | El Chat Trigger se conecta directamente al agente |
 | Observabilidad | Gmail como nodo final, con mensaje recibido, informe del agente y pasos ejecutados (Return Intermediate Steps) |
+
+### Criterios de evaluación
+
+| Criterio | Peso | Cómo se cumple |
+|---|---|---|
+| Observabilidad y log externo de finalización | 35 % | Nodo final **Gmail** que envía al equipo comercial un correo **"Tarea completada"** con el informe del agente y el resultado de la herramienta |
+| Arquitectura de Interfaces No-Code | 30 % | **Airtable** acoplado lateralmente como Tool del agente, sin conexiones secuenciales en el lienzo |
+| Guardrails financieros y observabilidad | 35 % | **Max Iterations = 6** (rango 5 a 10) y log automático de auditoría (Execution Log) hacia Gmail |
 
 ---
 
